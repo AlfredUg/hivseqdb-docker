@@ -66,19 +66,25 @@ wget https://github.com/AlfredUg/hivseqdb-docker/raw/main/data/Santiago_Nicagura
 
 ## Dependancies
 
-Below is the list of tools that are used by HIVseqDB.
+Below is the list of key tools that are used by HIVseqDB. See `requirements.txt` for other dependancies.
 
-+ [Quasitools](https://phac-nml.github.io/quasitools/)
-+ [Sierra-local](https://github.com/PoonLab/sierra-local)
+Web, server, data management
 + [Django](#)
 + [Redis](#)
 + [Celery](#)
 + [Postgres](#)
 + [Nginx](#)
 + [Gunicorn](#)
+
+HIVseqDB UI/UX
 + [Data tables](#)
 + [Bootstrap](#)
 + [Highcharts](#)
+
+Analysis of HIV drug resistance
++ [Quasitools](https://phac-nml.github.io/quasitools/)
++ [Sierra-local](https://github.com/PoonLab/sierra-local)
++ R package, Jsonlite
 
 ## Troubleshooting
 
