@@ -12,35 +12,50 @@ Portable resource for management and analysis of NGS-based HIV Drug Resistance D
 
 ## Quick installation
 
-+ Download HIVseqDB from GitHub.
-    ```bash
-    git clone https://github.com/AlfredUg/hivseqdb-docker.git
-    cd hivseqdb-docker
-    ```
-
-+ Make migrations
-    ```bash
-    python manage.py makemigrations
-    ```
-
-+ Push the migrations
-    ```bash
-    python manage.py migrate
-    ```
-
-+ Create a super user for the admin role
-    ```bash
-    python manage.py createsuperuser
-    ```
-
-## Deploy HIVseqDB using docker-compose
-
 HIVseqDB requires **docker** which is readily available for all operating systems.
+
+Download HIVseqDB from GitHub.
+```bash
+git clone https://github.com/AlfredUg/hivseqdb-docker.git
+cd hivseqdb-docker
+```
+
+First, build HIVseqDB using the `docker-compose` command.
+
+```bash
+sudo docker-compose build
+```
+
+Secondly, having built successfully, run all the containers.
+
+```bash
+sudo docker-compose up
+```
+
+If everything looks good, deploy HIVseqDB.
+
 ```bash
 sudo docker-compose up --build -d
 ```
 
 The server will be running at: [http://127.0.0.1](http://127.0.0.1). Watch the following video, on how to use the resource.
+
+We are almost there. We need to set up the database and create a super user, which we can do by interactively running the server container of HIVseqDB.
+
+```bash
+sudo docker exec -it hivseqdb-docker_server_1 bash
+```
+
+Set up migrations and commit them to the database.
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Create a super user for the admin role
+```bash
+python manage.py createsuperuser
+```
 
 ## Usage
 
