@@ -8,7 +8,7 @@
 
 ## Introduction
 
-Portable resource for management and analysis of NGS-based HIV Drug Resistance Data.
+Portable resource for management and analysis of NGS-based HIV Drug Resistance Data. Secure management of uploaded NGS data, matched with sample data. HIVseqDB provides a searchable database protected through user authentication. NGS-based HIVDR data is asynchronously analysed using state of the art tools. Results are given off in user friendly pages and exportable in various formats. HIVseqDB can be deployed on different computing environments. It is distributed with guidelines for setting it up for on-prem and cloud-based compute solutions.
 
 ## Quick installation
 
@@ -40,7 +40,7 @@ HIVseqDB requires **docker** which is readily available for all operating system
 sudo docker-compose up --build -d
 ```
 
-The server will be running at: http://127.0.0.1. Watch the following video, on how to use the resource.
+The server will be running at: + [http://127.0.0.1](http://127.0.0.1). Watch the following video, on how to use the resource.
 
 ## Usage
 
@@ -72,7 +72,7 @@ Below is the list of tools that are used by HIVseqDB.
 
 ## Troubleshooting
 
-Kindly report any issues at https://github.com/AlfredUg/hivseqdb-docker/issues.
+Kindly report any issues at [https://github.com/AlfredUg/hivseqdb-docker/issues](https://github.com/AlfredUg/hivseqdb-docker/issues).
 
 ## License
 
