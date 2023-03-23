@@ -12,26 +12,26 @@ Portable resource for management and analysis of NGS-based HIV Drug Resistance D
 
 ## Quick installation
 
-Download HIVseqDB from GitHub.
-```bash
-git clone https://github.com/AlfredUg/hivseqdb-docker.git
-cd hivseqdb-docker
-```
++ Download HIVseqDB from GitHub.
+    ```bash
+    git clone https://github.com/AlfredUg/hivseqdb-docker.git
+    cd hivseqdb-docker
+    ```
 
-Make migrations
-```bash
-python manage.py makemigrations
-```
++ Make migrations
+    ```bash
+    python manage.py makemigrations
+    ```
 
-Push the migrations
-```bash
-python manage.py migrate
-```
++ Push the migrations
+    ```bash
+    python manage.py migrate
+    ```
 
-Create a super user for the admin role
-```bash
-python manage.py createsuperuser
-```
++ Create a super user for the admin role
+    ```bash
+    python manage.py createsuperuser
+    ```
 
 ## Deploy HIVseqDB using docker-compose
 
