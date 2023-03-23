@@ -40,7 +40,7 @@ HIVseqDB requires **docker** which is readily available for all operating system
 sudo docker-compose up --build -d
 ```
 
-The server will be running at: + [http://127.0.0.1](http://127.0.0.1). Watch the following video, on how to use the resource.
+The server will be running at: [http://127.0.0.1](http://127.0.0.1). Watch the following video, on how to use the resource.
 
 ## Usage
 
@@ -48,14 +48,17 @@ Below is a quick video of the HOW-TOs.
 
 ## Test data
 
-The NGS data used in this demonstration is publically available at the NCBI Sequence Read Archive (SRA) and the European Nucleotide Archive (ENA), Bioproject accession PRJNA340290. Corresponding sample data was obtained from the associated publication. Many thanks to Avila-Ríos, Santiago, et al. "HIV drug resistance in antiretroviral treatment-naïve individuals in the largest public hospital in Nicaragua, 2011-2015." PLoS One 11.10 (2016): e0164156.
+To demonstrate the usage of HIVseqDB, download real HIV-1 NGS data from the European Nucleotide Archive (ENA), Bioproject accession PRJNA340290. 
 
 ```bash
-wget /path/to/PRJNA340290/*.fastq.gz 
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR407/007/SRR4071737/SRR4071737_1.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR407/007/SRR4071737/SRR4071737_2.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR407/008/SRR4071738/SRR4071738_1.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR407/008/SRR4071738/SRR4071738_2.fastq.gz
 gunzip *.gz
 ```
 
-Also here is the corresponding sample metadata.
+Get corresponding sample data from the associated publication. Many thanks to Avila-Ríos, Santiago, et al. "HIV drug resistance in antiretroviral treatment-naïve individuals in the largest public hospital in Nicaragua, 2011-2015." PLoS One 11.10 (2016): e0164156.
 
 ## Dependancies
 
