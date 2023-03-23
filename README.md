@@ -51,7 +51,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-Create a super user for the admin role
+Create a super user for the admin role.
 
 ```bash
 python manage.py createsuperuser
