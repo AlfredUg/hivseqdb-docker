@@ -38,9 +38,7 @@ If everything looks good, deploy HIVseqDB.
 sudo docker-compose up --build -d
 ```
 
-The server will be running at: [http://127.0.0.1](http://127.0.0.1). Watch the following video, on how to use the resource.
-
-We are almost there. We need to set up the database and create a super user, which we can do by interactively running the server container of HIVseqDB.
+The server will be running at: [http://127.0.0.1](http://127.0.0.1). We are almost there. We need to set up the database and create a super user, which we can do by interactively running the server container of HIVseqDB.
 
 ```bash
 sudo docker exec -it hivseqdb-docker_server_1 bash
@@ -58,10 +56,6 @@ Create a super user for the admin role
 ```bash
 python manage.py createsuperuser
 ```
-
-Lastly, set the environment variable `SECRET_KEY` to be used by Django.
-+ Could add this to the `.bash_profile` (Recommended).
-+ Could add it directly to the `hivseqdb/hivseqdb/settings.py` (Not recommended).
 
 ## Usage
 
