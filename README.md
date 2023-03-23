@@ -20,9 +20,29 @@ git clone https://github.com/AlfredUg/hivseqdb-docker.git
 cd hivseqdb-docker
 ```
 
+Make migrations
+```bash
+python manage.py makemigrations
+```
+
+Push the migrations
+```bash
+python manage.py migrate
+```
+
+Create a super user for the admin role
+```bash
+python manage.py createsuperuser
+```
+
+## Deploy HIVseqDB using docker-compose
+```bash
+sudo docker-compose up --build -d
+```
+
 ## Usage
 
-Below is a qick video of the HOW-TOs. 
+Below is a quick video of the HOW-TOs. 
 
 ## Test data
 
