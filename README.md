@@ -12,7 +12,7 @@ Portable resource for management and analysis of NGS-based HIV Drug Resistance D
 
 ## Quick installation
 
-HIVseqDB requires **docker** which is readily available for all operating systems.
+HIVseqDB requires **docker** to pull and run the containerised services, if you have docker available, proceed to next steps. Otherwise, install it from [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/).
 
 Download HIVseqDB from GitHub.
 ```bash
@@ -26,7 +26,7 @@ First, build HIVseqDB using the `docker-compose` command.
 sudo docker-compose build
 ```
 
-Secondly, having built successfully, run all the containers.
+Secondly, run all the containers.
 
 ```bash
 sudo docker-compose up
@@ -47,12 +47,14 @@ sudo docker exec -it hivseqdb-docker_server_1 bash
 ```
 
 Set up migrations and commit them to the database.
+
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
 Create a super user for the admin role
+
 ```bash
 python manage.py createsuperuser
 ```
