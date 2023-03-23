@@ -57,12 +57,18 @@ gunzip *.gz
 
 Also here is the corresponding sample metadata.
 
-## Dependancies.
+## Dependancies
 
 Below is the list of tools that are used by HIVseqDB.
 
 + [Quasitools](https://phac-nml.github.io/quasitools/)
 + [Sierra-local](https://github.com/PoonLab/sierra-local)
++ [Django](#)
++ [Redis](#)
++ [Celery](#)
++ [Data tables](#)
++ [Bootstrap](#)
++ [Highcharts](#)
 
 ## Troubleshooting
 
@@ -70,7 +76,7 @@ Kindly report any issues at https://github.com/AlfredUg/hivseqdb-docker/issues.
 
 ## License
 
-QuasiFlow is licensed under GNU GPL v3.
+HIVseqDB is licensed under GNU GPL v3.
 
 ## Citation
 
