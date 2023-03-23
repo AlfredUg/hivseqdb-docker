@@ -64,7 +64,6 @@ Get corresponding sample data from the associated publication. Many thanks to Av
 wget https://github.com/AlfredUg/hivseqdb-docker/raw/main/data/Santiago_Nicagura_2016.csv
 ```
 
-
 ## Dependancies
 
 Below is the list of tools that are used by HIVseqDB.
@@ -74,6 +73,9 @@ Below is the list of tools that are used by HIVseqDB.
 + [Django](#)
 + [Redis](#)
 + [Celery](#)
++ [Postgres](#)
++ [Nginx](#)
++ [Gunicorn](#)
 + [Data tables](#)
 + [Bootstrap](#)
 + [Highcharts](#)
