@@ -59,6 +59,10 @@ Create a super user for the admin role
 python manage.py createsuperuser
 ```
 
+Lastly, set the environment variable `SECRET_KEY` to be used by Django.
++ Could add this to the `.bash_profile` (Recommended).
++ Could add it directly to the `hivseqdb/hivseqdb/settings.py` (Not recommended).
+
 ## Usage
 
 Below is a quick video of the HOW-TOs. 
