@@ -59,11 +59,9 @@ python manage.py createsuperuser
 
 ## Usage
 
-Below is a quick video of the HOW-TOs. 
+Below is a quick video of the HOW-TOs of HIVseqDB. 
 
-[![Quick overview of HIVseqDB](https://i3.ytimg.com/vi/zVOtqU-aisg/maxresdefault.jpg)](https://www.youtube.com/watch?v=zVOtqU-aisg "Quick overview of HIVseqDB")
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zVOtqU-aisg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Test data
 
