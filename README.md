@@ -61,7 +61,9 @@ python manage.py createsuperuser
 
 Below is a quick video of the HOW-TOs. 
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/v=zVOtqU-aisg/0.jpg)](https://www.youtube.com/watch?v=zVOtqU-aisg "Quick overview of HIVseqDB")
+[![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME")
+
+[![Quick overview of HIVseqDB](http://img.youtube.com/vi/v=zVOtqU-aisg/0.jpg)](https://www.youtube.com/watch?v=zVOtqU-aisg "Quick overview of HIVseqDB")
 
 ## Test data
 
