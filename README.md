@@ -8,7 +8,7 @@
 
 ## Introduction
 
-Portable resource for management and analysis of NGS-based HIV Drug Resistance Data. Secure management of uploaded NGS data, matched with sample data. HIVseqDB provides a searchable database protected through user authentication. NGS-based HIVDR data is asynchronously analysed using state of the art tools. Results are given off in user friendly pages and exportable in various formats. HIVseqDB can be deployed on different computing environments. It is distributed with guidelines for setting it up for on-prem and cloud-based compute solutions.
+Portable resource for management and analysis of NGS-based HIV Drug Resistance Data. Secure management of uploaded NGS data, matched with sample data. HIVseqDB provides a searchable database protected through user authentication. NGS-based HIVDR data is asynchronously analysed using state of the art tools. Results are given off in user friendly pages and exportable in various formats. HIVseqDB can be deployed on different computing environments. It is distributed with guidelines for setting it up for on-prem and cloud-based compute solutions. A quick demonstration of HIVseqDB in production is available at [https://hivseqdb.org/](https://hivseqdb.org/).
 
 ## Quick installation
 
