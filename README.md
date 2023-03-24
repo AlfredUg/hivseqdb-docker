@@ -63,6 +63,8 @@ Below is a quick video of the HOW-TOs.
 
 [![Quick overview of HIVseqDB](https://i3.ytimg.com/vi/zVOtqU-aisg/maxresdefault.jpg)](https://www.youtube.com/watch?v=zVOtqU-aisg "Quick overview of HIVseqDB")
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 ## Test data
 
 To demonstrate the usage of HIVseqDB, download real HIV-1 NGS data from the European Nucleotide Archive (ENA), Bioproject accession PRJNA340290. 
