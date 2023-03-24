@@ -61,6 +61,8 @@ python manage.py createsuperuser
 
 Below is a quick video of the HOW-TOs. 
 
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/v=zVOtqU-aisg/0.jpg)](https://www.youtube.com/watch?v=zVOtqU-aisg "Quick overview of HIVseqDB")
+
 ## Test data
 
 To demonstrate the usage of HIVseqDB, download real HIV-1 NGS data from the European Nucleotide Archive (ENA), Bioproject accession PRJNA340290. 
