@@ -71,16 +71,26 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#fff" href="#">Data upload</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/uploads/ngs-data-batch/">NGS: Batch upload</a>
+            <a class="dropdown-item" href="/uploads/ngs-data-single/">NGS: Single sample upload</a>
+            <a class="dropdown-item" href="/uploads/consensus-data-batch/">Consensus sequences Batch upload</a>
+            <a class="dropdown-item" href="/uploads/consensus-data-single/">Upload single consensus sequence</a>
+          </div>
+        </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#fff" href="#">Data browser</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/browse/sample-data/">Sample data</a>
             <a class="dropdown-item" href="/browse/ngs-data/">NGS data</a>
+            <a class="dropdown-item" href="#">Sanger data</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link mr-auto" style="color:#fff" href="/uploads/ngs-data/">Data upload</a>
-        </li>
+        
         <li class="nav-item">
           {% if request.user.is_authenticated %}
           <a class="nav-link" style="color:#fff" href="/logout/">Log out</a>
