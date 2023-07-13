@@ -50,12 +50,12 @@
         <tbody>
             {% for result in results %}
             <tr>
-                <td><a href="#">{{result.sample_ID}}</a></td>
+                <td><a href="{% url 'sampleDrugResistance' result.sample_ID %}">{{result.sample_ID}}</a></td>
                 <td>{{result.drugClass}}</td>
                 <td>{{result.drugName}}</td>
                 <td>{{result.drugScore}}</td>
                 <td>{{result.susceptibility}}</td>
-                <td><a href="{% url 'projectMinorityVariants' result.project_ID %}">{{result.project_ID}}</a></td>
+                <td>{{result.project_ID}}</td>
             </tr>
             {% endfor %}
         </tbody>

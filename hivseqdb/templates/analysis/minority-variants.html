@@ -49,6 +49,7 @@
     <table id="hivdr" class="table table-striped">
         <thead>
             <tr>
+                <th>Sample</th>
                 <th>Gene</th>
                 <th>Category</th>
                 <th>Surveillance</th>
@@ -63,6 +64,7 @@
         <tbody>
             {% for result in project_variants %}
             <tr>
+                <td><a href="#">{{result.sample}}</a></td>
                 <td>{{result.gene}}</td>
                 <td>{{result.category}}</td>
                 <td>{{result.surveillance}}</td>

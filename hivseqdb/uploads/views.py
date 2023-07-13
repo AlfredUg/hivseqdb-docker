@@ -20,7 +20,7 @@ class CreateDataUpload(LoginRequiredMixin, SuccessMessageMixin, generic.CreateVi
               projectName=self.request.POST['project_Name']
               Region_Sequenced=self.request.POST['Region_Sequenced']
               Sequencing_Platform=self.request.POST['Sequencing_Platform']
-              sample_file=self.request.FILES['sample_File']
+              sample_file=self.request.FILES['sample_CSV_File']
               
               df=pd.read_csv(sample_file, delimiter=',')
               print(df)
@@ -64,7 +64,7 @@ class CreateDataUploadSingle(LoginRequiredMixin, SuccessMessageMixin, generic.Cr
               projectName=self.request.POST['project_Name']
               Region_Sequenced=self.request.POST['Region_Sequenced']
               Sequencing_Platform=self.request.POST['Sequencing_Platform']
-              sample_file=self.request.FILES['sample_File']
+              sample_file=self.request.FILES['sample_CSV_File']
               
               df=pd.read_csv(sample_file, delimiter=',')
               print(df)
@@ -109,7 +109,7 @@ class CreateDataUploadSangerSingle(LoginRequiredMixin, SuccessMessageMixin, gene
               projectName=self.request.POST['project_Name']
               Region_Sequenced=self.request.POST['Region_Sequenced']
               Sequencing_Platform=self.request.POST['Sequencing_Platform']
-              sample_file=self.request.FILES['sample_File']
+              sample_file=self.request.FILES['sample_CSV_File']
               
               df=pd.read_csv(sample_file, delimiter=',')
               print(df)
@@ -153,7 +153,7 @@ class CreateDataUploadSangerBatch(LoginRequiredMixin, SuccessMessageMixin, gener
               projectName=self.request.POST['project_Name']
               Region_Sequenced=self.request.POST['Region_Sequenced']
               Sequencing_Platform=self.request.POST['Sequencing_Platform']
-              sample_file=self.request.FILES['sample_File']
+              sample_file=self.request.FILES['sample_CSV_File']
               
               df=pd.read_csv(sample_file, delimiter=',')
               print(df)

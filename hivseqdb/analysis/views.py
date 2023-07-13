@@ -133,12 +133,19 @@ def minority(request, project):
     return render(request, 'analysis/minority-variants.html', context=context)
 
 
-def drug_resistance_report(request):
-    pdf_resp = HttpResponse(content_type='application/pdf')
-    #input=os.path.join(settings.MEDIA_ROOT,'ngs/projects/', sample, '.json')
-    url = "https://raw.githubusercontent.com/AlfredUg/ngs_hivdb/master/DRR030218.json"
-    json_response = requests.get(url)
-    data = json.loads(json_response.text)
+def drug_resistance_report(request, sample):
+    # pdf_resp = HttpResponse(content_type='application/pdf')
+    
+    # url = "https://raw.githubusercontent.com/AlfredUg/ngs_hivdb/master/DRR030218.json"
+    # json_response = requests.get(url)
+    # data = json.loads(json_response.text)
+
+    project = 'Demo'
+
+    json_report_path=os.path.join(settings.MEDIA_ROOT,'ngs/analyses/', project, sample+'.json')
+
+    json_report = open(json_report_path)
+    data = json.load(json_report)
     seqName=data[0]['inputSequence']['header']
     print(seqName)
 
