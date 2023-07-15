@@ -57,8 +57,8 @@
                 <th>Gene</th>
                 <th>Category</th>
                 <th>Surveillance</th>
-                <th>Wild type</th>
-                <th>Position</th>
+                <!-- <th>Wild type</th> -->
+                <!-- <th>Position</th> -->
                 <th>Mutation</th>
                 <th>Mutation frequency</th>
                 <th>Coverage</th>
@@ -72,9 +72,9 @@
                 <td>{{result.gene}}</td>
                 <td>{{result.category}}</td>
                 <td>{{result.surveillance}}</td>
-                <td>{{result.wildtype}}</td>
-                <td>{{result.position}}</td>
-                <td>{{result.mutation}}</td>
+                <!-- <td>{{result.wildtype}}</td> -->
+                <!-- <td>{{result.position}}</td> -->
+                <td>{{result.wildtype}}{{result.position}}{{result.mutation}}</td>
                 <td>{{result.mutation_frequency}}</td>
                 <td>{{result.coverage}}</td>
                 <td>{{result.project}}</td>
@@ -184,7 +184,7 @@
             text: 'Frequency of NRTI Drug Resistance Mutations RT'
         },
         xAxis: {
-            categories: pr_minority
+            categories: rt_nrti
         },
         yAxis: {
                min: 0,
@@ -268,13 +268,13 @@
                       initCollapsed: true,
                       show: true,
                   },
-                  targets: [1,2,3,9]
+                  targets: [1,2,3,4]
               },
               {
                   searchPanes: {
                       show: false
                   },
-                  targets: [4,5,6,7,8]
+                  targets: [0,5,6,7]
               }
           ]
   

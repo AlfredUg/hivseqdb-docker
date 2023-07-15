@@ -166,12 +166,12 @@ def minority_sample(request, sample):
         'pr_minority_cov': pr_drms[6],
 
         'rt_variants': rt_drms[0],
-        'rt_nrti': pr_drms[1],
-        'rt_nrti_freq': pr_drms[2],
-        'rt_nrti_cov': pr_drms[3],
-        'rt_nnrti': pr_drms[4],
-        'rt_nnrti_freq': pr_drms[5],
-        'rt_nnrti_cov': pr_drms[6],
+        'rt_nrti': rt_drms[1],
+        'rt_nrti_freq': rt_drms[2],
+        'rt_nrti_cov': rt_drms[3],
+        'rt_nnrti': rt_drms[4],
+        'rt_nnrti_freq': rt_drms[5],
+        'rt_nnrti_cov': rt_drms[6],
         
         'sample_variants': sample_variants
 

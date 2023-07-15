@@ -44,18 +44,20 @@
                 <th>Drug Name</th>
                 <th>Drug Score</th>
                 <th>Susceptibilty</th>
-                <th>Project ID</th>
+                <th>Drug resistance report</th>
+                <th>Minority variants summary</th>
             </tr>
         </thead>
         <tbody>
             {% for result in results %}
             <tr>
-                <td><a href="{% url 'sampleDrugResistance' result.sample_ID %}">{{result.sample_ID}}</a></td>
+                <td>{{result.sample_ID}}</td>
                 <td>{{result.drugClass}}</td>
                 <td>{{result.drugName}}</td>
                 <td>{{result.drugScore}}</td>
                 <td>{{result.susceptibility}}</td>
-                <td>{{result.project_ID}}</td>
+                <td><a href="{% url 'sampleDrugResistance' result.sample_ID %}">Drug resistance report</a></td>
+                <td><a href="{% url 'sampleMinorityVariants' result.sample_ID %}">Minority variants summary</a></td>
             </tr>
             {% endfor %}
         </tbody>
