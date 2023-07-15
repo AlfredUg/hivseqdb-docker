@@ -45,6 +45,43 @@ def project_gene_drms(project, gene):
     chart_data = [variants, majority, minority]
     return chart_data
 
+def sample_gene_drms(sample, gene):
+    
+    variants=MinorityVariantsResult.objects.filter(sample=sample, gene=gene)
+    pdmv=pd.DataFrame.from_records(variants.values())
+    pdmv['variant']=pdmv['wildtype']+pdmv['position'].astype(str)+pdmv['mutation']
+    tmp = pdmv[['category', 'variant', 'mutation_frequency', 'coverage']]
+
+    minor=[]
+    minor_freq=[]
+    minor_cov=[]
+
+    major=[]
+    major_freq=[]
+    major_cov=[]
+
+    if gene=='PR':
+        minor=list(tmp[tmp['category']=='PIMinor']['variant'])
+        minor_freq=list(tmp[tmp['category']=='PIMinor']['mutation_frequency'].astype(float))
+        minor_cov=list(tmp[tmp['category']=='PIMajor']['coverage'].astype(float)) # we report coverage in thousands
+
+        major=list(tmp[tmp['category']=='PIMajor']['variant'])
+        major_freq=list(tmp[tmp['category']=='PIMajor']['mutation_frequency'].astype(float))
+        major_cov=list(tmp[tmp['category']=='PIMajor']['coverage'].astype(float)) # we report coverage in thousands
+
+    elif gene=='RT':
+        minor=list(tmp[tmp['category']=='NNRTI']['variant'])
+        minor_freq=list(tmp[tmp['category']=='NNRTI']['mutation_frequency'].astype(float))
+        minor_cov=list(tmp[tmp['category']=='NNRTI']['coverage'].astype(float)) # we report coverage in thousands
+
+        major=list(tmp[tmp['category']=='NRTI']['variant'])
+        major_freq=list(tmp[tmp['category']=='NRTI']['mutation_frequency'].astype(float))
+        major_cov=list(tmp[tmp['category']=='NRTI']['coverage'].astype(float)) # we report coverage in thousands
+    
+    chart_data=[variants, major, major_freq, major_cov, minor, minor_freq, minor_cov]
+
+    return chart_data
+
 def check_string(x):
     if x=='':
         x='None'
