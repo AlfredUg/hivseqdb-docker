@@ -1,6 +1,6 @@
 from django.views import generic
 from django.http import HttpResponseRedirect
-from uploads.forms import DataUploadForm, DataUploadSingleForm
+from uploads.forms import DataUploadNGSBatchForm, DataUploadSingleForm, DataUploadConsensusBatchForm
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -12,10 +12,10 @@ from uploads.models import Project, Sample
 
 class CreateDataUpload(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     template_name = 'uploads/batch-upload-ngs.html'
-    form_class = DataUploadForm
+    form_class = DataUploadNGSBatchForm
 
     def post(self, *args, **kwargs):
-          form = DataUploadForm(data=self.request.POST, files=self.request.FILES)      
+          form = DataUploadNGSBatchForm(data=self.request.POST, files=self.request.FILES)      
           if form.is_valid():
               projectName=self.request.POST['project_Name']
               Region_Sequenced=self.request.POST['Region_Sequenced']
@@ -56,10 +56,10 @@ class CreateDataUpload(LoginRequiredMixin, SuccessMessageMixin, generic.CreateVi
           
 class CreateDataUploadSingle(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     template_name = 'uploads/single-upload-ngs.html'
-    form_class = DataUploadForm
+    form_class = DataUploadNGSBatchForm
 
     def post(self, *args, **kwargs):
-          form = DataUploadForm(data=self.request.POST, files=self.request.FILES)      
+          form = DataUploadNGSBatchForm(data=self.request.POST, files=self.request.FILES)      
           if form.is_valid():
               projectName=self.request.POST['project_Name']
               Region_Sequenced=self.request.POST['Region_Sequenced']
@@ -94,17 +94,18 @@ class CreateDataUploadSingle(LoginRequiredMixin, SuccessMessageMixin, generic.Cr
                     Region_Sequenced=Region_Sequenced,
                     Sequencing_Platform=Sequencing_Platform)
                 project_instance.save()
+
               messages.success(self.request, 'Congrats! Your data submission was successful')
               
               return HttpResponseRedirect(self.request.path_info)
           
 
-class CreateDataUploadSangerSingle(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
-    template_name = 'uploads/single-upload-sanger.html'
+class CreateDataUploadConsensusSingle(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
+    template_name = 'uploads/single-upload-consensus.html'
     form_class = DataUploadSingleForm
 
     def post(self, *args, **kwargs):
-          form = DataUploadForm(data=self.request.POST, files=self.request.FILES)      
+          form = DataUploadSingleForm(data=self.request.POST, files=self.request.FILES)      
           if form.is_valid():
               projectName=self.request.POST['project_Name']
               Region_Sequenced=self.request.POST['Region_Sequenced']
@@ -130,25 +131,17 @@ class CreateDataUploadSangerSingle(LoginRequiredMixin, SuccessMessageMixin, gene
                       regimenStart=row['regimenStart'],
                       project=projectName)
                   sampleInstance.save()
-              
-              #populate_fastq_files.delay(fastqFiles, projectName, Region_Sequenced, Sequencing_Platform, Sequencing_Date)
-              for file in self.request.FILES.getlist('fastq_Files'):
-                project_instance = Project(
-                    fastq_Files=file, 
-                    project_Name=projectName,
-                    Region_Sequenced=Region_Sequenced,
-                    Sequencing_Platform=Sequencing_Platform)
-                project_instance.save()
+            
               messages.success(self.request, 'Congrats! Your data submission was successful')
               
               return HttpResponseRedirect(self.request.path_info)
           
-class CreateDataUploadSangerBatch(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
-    template_name = 'uploads/batch-upload-sanger.html'
-    form_class = DataUploadSingleForm
+class CreateDataUploadConsensusBatch(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
+    template_name = 'uploads/batch-upload-consensus.html'
+    form_class = DataUploadConsensusBatchForm
 
     def post(self, *args, **kwargs):
-          form = DataUploadForm(data=self.request.POST, files=self.request.FILES)      
+          form = DataUploadConsensusBatchForm(data=self.request.POST, files=self.request.FILES)      
           if form.is_valid():
               projectName=self.request.POST['project_Name']
               Region_Sequenced=self.request.POST['Region_Sequenced']
@@ -175,14 +168,6 @@ class CreateDataUploadSangerBatch(LoginRequiredMixin, SuccessMessageMixin, gener
                       project=projectName)
                   sampleInstance.save()
               
-              #populate_fastq_files.delay(fastqFiles, projectName, Region_Sequenced, Sequencing_Platform, Sequencing_Date)
-              for file in self.request.FILES.getlist('fastq_Files'):
-                project_instance = Project(
-                    fastq_Files=file, 
-                    project_Name=projectName,
-                    Region_Sequenced=Region_Sequenced,
-                    Sequencing_Platform=Sequencing_Platform)
-                project_instance.save()
               messages.success(self.request, 'Congrats! Your data submission was successful')
               
               return HttpResponseRedirect(self.request.path_info)

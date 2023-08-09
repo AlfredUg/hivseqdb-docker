@@ -31,6 +31,16 @@ class Project(models.Model):
     def get_absolute_url(self):
         return reverse('newAnalysisForm')
         
+class ConsensusSequence(models.Model):
+    projectID=models.AutoField(primary_key=True)
+    project_Name=models.CharField(max_length=50)
+    Region_Sequenced=models.CharField(max_length=50)
+    Sequencing_Technology=models.CharField(max_length=50)
+    Sequencing_Platform=models.CharField(max_length=50)
+    fasta_File = models.FileField(upload_to=project_upload_path, blank=False, null=False)
+    sample_CSV_File = models.FileField(blank=False, null=False)
+
+
 class Sample(models.Model):
     sample=models.AutoField(primary_key=True)
     sampleName=models.CharField(max_length=250, unique=True)
@@ -41,7 +51,7 @@ class Sample(models.Model):
     sampleCity=models.CharField(max_length=250,blank=True, null=True)
     sampleType=models.CharField(max_length=250,blank=True, null=True)
     sampleTissue=models.CharField(max_length=250,blank=True, null=True)
-    HLAtype=models.CharField(max_length=250,blank=True, null=True)
+    # HLAtype=models.CharField(max_length=250,blank=True, null=True)
 
     viralLoad=models.DecimalField(decimal_places=1,max_digits=10)
     cd4=models.DecimalField(decimal_places=1,max_digits=10)

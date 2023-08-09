@@ -196,6 +196,13 @@
       <button type="reset" class="btn btn-danger">Cancel</button>
     </form>
 </div>
+<!-- https://stackoverflow.com/questions/58956947/django-crispy-forms-with-bootstrap4-not-showing-selected-result-in-browse-file-f -->
+<script type="application/javascript">
+    $('input[type="file"]').change(function(e){
+        var fileName = e.target.files[0].name;
+        $('.custom-file-label').html(fileName);
+    });
+</script>
 </div>
 <br>
 {% endblock %}
