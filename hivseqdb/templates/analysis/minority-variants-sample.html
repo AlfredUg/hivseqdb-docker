@@ -15,6 +15,7 @@
         {{ message }}
       </div>
     {% endfor %}
+
 <div class="row mt-3 pt-3 p-3 border shadow">
     <div class="col-md-12">
         <div class="p-3 border-bottom border-info">
@@ -111,7 +112,7 @@
         yAxis: {
                min: 0,
                title: {
-                  text: 'Mutation frequency and coverage',
+                  text: 'Mutation frequency and mutational load',
                 //   align: 'high'
                },
                labels: {
@@ -123,7 +124,7 @@
             data: pr_majority_freq
         },
         {
-            name: 'Coverage',
+            name: 'Mutational load',
             data: pr_majority_cov
         }],
         accessibility: {
@@ -150,7 +151,7 @@
         yAxis: {
                min: 0,
                title: {
-                  text: 'Mutation frequency and coverage',
+                  text: 'Mutation frequency and mutational load',
                 //   align: 'high'
                },
                labels: {
@@ -162,7 +163,7 @@
             data: pr_minority_freq
         },
         {
-            name: 'Coverage',
+            name: 'Mutational load',
             data: pr_minority_cov
         }],
         accessibility: {
@@ -174,14 +175,14 @@
 <script>
     rt_nrti={{rt_nrti|safe}};
     rt_nrti_freq={{rt_nrti_freq|safe}};
-    rt_nrti_cov={{rt_nrti_freq|safe}};
+    rt_nrti_cov={{rt_nrti_cov|safe}};
 
     Highcharts.chart('nrti-drms-plot', {
         chart: {
             type: 'column'
         },
         title: {
-            text: 'Frequency of NRTI Drug Resistance Mutations RT'
+            text: 'Frequency of NRTI Drug Resistance Mutations in RT'
         },
         xAxis: {
             categories: rt_nrti
@@ -189,7 +190,7 @@
         yAxis: {
                min: 0,
                title: {
-                  text: 'Mutation frequency and coverage',
+                  text: 'Mutation frequency and mutational load',
                 //   align: 'high'
                },
                labels: {
@@ -201,7 +202,7 @@
             data: rt_nrti_freq
         },
         {
-            name: 'Coverage',
+            name: 'Mutational load',
             data: rt_nrti_cov
         }],
         accessibility: {
@@ -213,14 +214,14 @@
 <script>
     rt_nnrti={{rt_nnrti|safe}};
     rt_nnrti_freq={{rt_nnrti_freq|safe}};
-    rt_nnrti_cov={{rt_nnrti_freq|safe}};
+    rt_nnrti_cov={{rt_nnrti_cov|safe}};
 
     Highcharts.chart('nnrti-drms-plot', {
         chart: {
             type: 'column'
         },
         title: {
-            text: 'Frequency of NNRTI Drug Resistance Mutations in RT'
+            text: 'Mutational load of NNRTI Drug Resistance Mutations in RT'
         },
         xAxis: {
             categories: rt_nnrti
@@ -228,7 +229,7 @@
         yAxis: {
                min: 0,
                title: {
-                  text: 'Mutation frequency and coverage',
+                  text: 'Mutational load (Viral load X mutation frequency)',
                 //   align: 'high'
                },
                labels: {
@@ -240,7 +241,7 @@
             data: rt_nnrti_freq
         },
         {
-            name: 'Coverage',
+            name: 'Mutational load',
             data: rt_nnrti_cov
         }],
         accessibility: {

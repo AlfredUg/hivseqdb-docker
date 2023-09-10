@@ -23,11 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = os.getenv('SECRET_KEY')
-
+# We higly recommend you set the SECRET as a system variable - as indicate above
 SECRET_KEY='1!2rz_@lrni)v54b0xg5n1dft(6+gzutyi(+##=egg6)aq2qg0gthYfabeTy)+bst7816Tg68&hC19Rfgt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', 'hivseqdb.org']
 
@@ -57,7 +57,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
 ]
 
 ROOT_URLCONF = 'hivseqdb.urls'
@@ -84,25 +83,16 @@ WSGI_APPLICATION = 'hivseqdb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DB_SQLITE = "sqlite"
-DB_POSTGRESQL = "postgresql"
-
-DATABASES_ALL = {
-    DB_POSTGRESQL: {
-        "ENGINE": "django.db.backends.postgresql",
-        "HOST": os.environ.get("POSTGRES_HOST", "localhost"),
-        "NAME": os.environ.get("POSTGRES_NAME", "postgres"),
-        "USER": os.environ.get("POSTGRES_USER", "postgres"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD", "postgres"),
-        "PORT": int(os.environ.get("POSTGRES_PORT", "5432")),
-    },
-    DB_SQLITE: {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    },
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
-DATABASES = {"default": DATABASES_ALL[os.environ.get("DJANGO_DB", DB_POSTGRESQL)]}
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -134,6 +124,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -141,7 +132,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 if not os.path.exists(STATIC_ROOT):
     os.makedirs(STATIC_ROOT)
-
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
@@ -149,7 +139,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media/'
 if not os.path.exists(MEDIA_ROOT):
     os.makedirs(MEDIA_ROOT)
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -158,10 +147,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Celery settings
 
 CELERY_BROKER_URL = 'redis://localhost:6379'
-
-# celery broker and result
-CELERY_BROKER_URL = os.environ.get("BROKER_URL", "redis://localhost:6379/0")
-CELERY_RESULT_BACKEND = os.environ.get("RESULT_BACKEND", "redis://localhost:6379/0")
+CELERY_RESULT_BACKEND = "redis://localhost:6379"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -177,8 +163,8 @@ MESSAGE_TAGS = {
         messages.ERROR: 'alert-danger',
  }
 
-LOGIN_URL = 'login' # this is the name of login url
+LOGIN_URL = 'login' # this is the name of the url
 
-LOGOUT_REDIRECT_URL = 'home' # this is the name of logout-redirect url
+LOGOUT_REDIRECT_URL = 'home' # this is the name of the url
 
-LOGIN_REDIRECT_URL = 'home' # this is the name of login-redirect url
+LOGIN_REDIRECT_URL = 'home' # this is the name of the url

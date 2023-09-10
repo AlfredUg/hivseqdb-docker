@@ -44,13 +44,6 @@ The server will be running at: [http://127.0.0.1](http://127.0.0.1). We are almo
 sudo docker exec -it hivseqdb-docker_server_1 bash
 ```
 
-Set up migrations and commit them to the database.
-
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-
 Create a super user for the admin role.
 
 ```bash
